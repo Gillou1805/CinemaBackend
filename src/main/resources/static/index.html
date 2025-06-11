@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test Salles</title>
+</head>
+<body>
+  <h1>Liste des salles (JSON → HTML)</h1>
+  <ul id="salle-list">Chargement…</ul>
+
+  <script>
+    fetch('/api/salles')
+      .then(resp => {
+        if (!resp.ok) throw new Error("Échec de l'appel API");
+        return resp.json();
+      })
+      .then(data => {
+        const ul = document.getElementById('salle-list');
+        ul.innerHTML = '';
+        data.forEach(salle => {
+          const li = document.createElement('li');
+          li.textContent = 
+            `#${salle.idSalle} — capacité: ${salle.capacite}, ` +
+            `std: ${salle.nbrSiegeStd}, spé: ${salle.nbrSiegeSpecial}, ` +
+            `PMR: ${salle.nbrSiegePmr} — ${salle.description}`;
+          ul.appendChild(li);
+        });
+      })
+      .catch(err => {
+        document.getElementById('salle-list').textContent = err;
+      });
+  </script>
+</body>
+</html>
