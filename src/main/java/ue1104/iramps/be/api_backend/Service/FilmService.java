@@ -32,7 +32,7 @@ public class FilmService {
         film.setTitre(filmDetails.getTitre());
         film.setDuree(filmDetails.getDuree());
         film.setDescription(filmDetails.getDescription());
-        film.setImage(filmDetails.getImage()); // ← on met à jour le champ image
+        film.setImage(filmDetails.getImage()); //  on met à jour le champ image
         return filmRepository.save(film);
     }
 

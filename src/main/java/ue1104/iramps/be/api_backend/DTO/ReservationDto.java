@@ -1,4 +1,3 @@
-// src/main/java/ue1104/iramps/be/api_backend/DTO/ReservationDto.java
 package ue1104.iramps.be.api_backend.DTO;
 
 import java.util.List;
@@ -10,7 +9,7 @@ public class ReservationDto {
     private Integer nbSiegeSpecial;
     private Integer nbSiegePmr;
 
-    // ← nouveau champ : positions des sièges réservés
+    //  nouveau champ : positions des sièges réservés
     private List<Long> seatIds;
 
     public Long getUserId() { return userId; }
